@@ -111,3 +111,109 @@
 // fn(1, 2, 3);
 // fn(1, 2, 3, 4, 5);
 // fn(1, 2, 3, 4, 5, 6);
+
+// Колбэк-функция
+
+// function greet(name) {
+//   return `Добро пожаловать ${name}.`;
+// }
+
+// // Вызываем функцию greet и выводим результат в консоль
+// console.log(greet('Манго')); // Добро пожаловать Манго.
+
+// // Выводим функцию greet в консоль не вызывая её
+// console.log(greet); // ƒ greet() { return `Добро пожаловать ${name}.`; }
+
+// function greet(name) {
+//   console.log(`Добро пожаловать ${name}.`);
+// }
+
+// Функция высшего порядка
+// function registerGuest(name, callback) {
+//   console.log(`Регистрируем гостя ${name}.`);
+//   callback(name);
+// }
+
+// registerGuest('Манго', greet);
+
+// function processCall(recipient) {
+//   // Имитируем доступность абонента случайным числом
+//   const isRecipientAvailable = Math.random() > 0.5;
+
+//   if (!isRecipientAvailable) {
+//     console.log(`Абонент ${recipient} недоступен, оставьте сообщение.`);
+//     // Логика активации автоответчика
+//   } else {
+//     console.log(`Соединяем с ${recipient}, ожидайте...`);
+//     // Логика принятия звонка
+//   }
+// }
+
+// processCall('Манго');
+
+// function repeatLog(n) {
+//   for (let i = 0; i < n; i += 1) {
+//     console.log(i);
+//   }
+// }
+
+// repeatLog(5);
+
+// const products = [
+//   { name: 'Radar', price: 1300, quantity: 4 },
+//   { name: 'Scanner', price: 2700, quantity: 3 },
+//   { name: 'Droid', price: 400, quantity: 7 },
+//   { name: 'Grip', price: 1200, quantity: 9 },
+// ];
+
+// function getAllPropValues(propName) {
+//   // Change code below this line
+//   let propValues = [];
+//   for (const product of products) {
+//     if (product.hasOwnProperty(propName)) {
+//       propValues.push(product[propName]);
+//     }
+//   }
+//   return propValues;
+// }
+// console.log(getAllPropValues('name'));
+// console.log(getAllPropValues('quantity'));
+// console.log(getAllPropValues('price'));
+// console.log(getAllPropValues('category'));
+
+// function makeTask(data) {
+//   const completed = false;
+//   const category = 'General';
+//   const priority = 'Normal';
+//   // Change code below this line
+//   return { completed, category, priority, ...data };
+
+//   // Change code above this line
+// }
+// console.log(makeTask({ category: 'Finance', text: 'Take interest' }));
+// console.log(makeTask({ priority: 'Low', text: 'Choose shampoo' }));
+// console.log(makeTask({ text: 'Buy bread' }));
+
+// Используя операцию rest дополни код функции add() так, чтобы она принимала любое количество аргументов, считала и возвращала их сумму.
+// function add(...args) {
+//   // Change code above this line
+//   let sum = 0;
+//   for (const arg of args) {
+//     sum += arg;
+//   }
+//   return sum;
+// }
+// console.log(add(15, 27));
+
+// Функция addOverNum() считает сумму всех аргументов. Измени параметры и тело функции addOverNum() так, чтобы она считала сумму только тех аргументов, которые больше чем заданное число. Это число должно быть первым параметром функции.
+// function addOverNum(firstParam, ...args) {
+//   let total = 0;
+
+//   for (const arg of args) {
+//     if (arg > firstParam) {
+//       total += arg;
+//     }
+//   }
+//   return total;
+// }
+// console.log(addOverNum(10, 12, 4, 11, 48, 10, 8));
