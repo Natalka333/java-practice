@@ -1,3 +1,235 @@
+// ОБЬЕКТЫ - ОБРАЩЕНИЕ
+// const book = {
+//   title: 'The Last Kingdom',
+//   author: 'Bernard Cornwell',
+//   genres: ['historical prose', 'adventure'],
+//   isPublic: true,
+//   rating: 8.38,
+//   location: {
+//     country: 'Jamaica',
+//     city: 'Ocho Rios',
+//   },
+// };
+//  обращение через точку
+
+// const bookTitle = book.title;
+// console.log(bookTitle); // 'The Last Kingdom'
+
+// const bookGenres = book.genres;
+// console.log(bookGenres); // ['historical prose', 'adventurs']
+
+// const bookPrice = book.price;
+// console.log(bookPrice); // undefined
+
+// console.log(book.title);
+
+// const location = book.location;
+// console.log(location);
+// const country = book.location.country;
+// console.log(country);
+
+// const genres = book.genres;
+// console.log(genres);
+// const firstGenres = genres;
+// console.log(firstGenres[0]);
+// console.log(genres.length);
+
+//  обращение через [] скобки
+// const bookTitle = book['title'];
+// console.log(bookTitle);
+// const bookGenres = book['genres'];
+// console.log(bookGenres);
+
+// изменение значения свойств
+// const book = {
+//   title: 'The Last Kingdom',
+//   author: 'Bernard Cornwell',
+//   genres: ['historical prose', 'adventure'],
+//   isPublic: true,
+//   rating: 8.38,
+//   location: {
+//     country: 'Jamaica',
+//     city: 'Ocho Rios',
+//   },
+// };
+// book.rating = 9;
+// book.genres.push('drama');
+// book.author = 'jonh';
+// console.log(book.rating);
+// console.log(book.genres);
+// console.log(book.author);
+
+// добавление значения свойств
+
+// book.pageCount = 836;
+// book.originalLanguage = 'en';
+// book.translations = ['ua', 'ru'];
+
+// console.log(book.pageCount); // 836
+// console.log(book.originalLanguage); // 'en'
+// console.log(book.translations); // ['ua', 'ru']
+
+// МЕТОДЫ ОБЬЕКТА
+
+// const bookShelf = {
+//   books: ['Garry Potter', 'Master and Margo'],
+
+//   getBook() {
+//     console.log('Воозвращает все книги');
+//   },
+//   addBooks() {
+//     console.log('Добавляет книги');
+//   },
+// };
+// bookShelf.getBook();
+// bookShelf.addBooks('new book');
+
+// ДОСТУП К СВОЙСТВАМ ОБЬЕКТА МЕТОДАХ --ОБРАЩАЕМСЯ ЧЕРЕЗ THIS!
+// const phoneShop = {
+//   phones: ['samsung', 'nokia'],
+//   getPhones() {
+//     return this.phones;
+//   },
+//   addPhones(phoneNew) {
+//     this.phones.push(phoneNew);
+//   },
+//   removePhones(phoneNew) {
+//     const phoneIndex = this.phones.indexOf(phoneNew);
+//     this.phones.splice(phoneIndex, 1);
+//   },
+// };
+
+// console.log(phoneShop.getPhones());
+// phoneShop.addPhones('xsiomi');
+// phoneShop.addPhones('aifon');
+// console.log(phoneShop.getPhones());
+// phoneShop.removePhones('aifon');
+// console.log(phoneShop.getPhones());
+
+// ПЕРЕБОР ОБЬЕКТА  for....in
+// const book = {
+//   title: 'The Last Kingdom',
+//   author: 'Bernard Cornwell',
+//   genres: ['historical prose', 'adventure'],
+//   rating: 8.38,
+// };
+
+// for (const key in book) {
+//   // Ключ
+//   console.log(key);
+//   // Значение свойства с таким ключом
+//   console.log(book[key]);
+// }
+
+// const shops = {
+//   phones: ['samsung', 'xiomi', 'nokia'],
+//   model: ['x1', 'x2', 'x3'],
+//   year: 2022,
+// };
+// for (const key in shops) {
+//   console.log(key);
+//   console.log(shops[key]);
+// };
+
+//Метод Object.create(shops) создаёт и возвращает новый объект, связывая его с объектом shops. Поэтому можно получить значение свойства year обратившись к нему как autor.year, хотя его нет в объекте autor - это несобственное свойство из объекта shops.
+// const autor = Object.create(shops);
+// autor.name = 'bernard';
+// console.log(autor);
+// console.log(autor.name);
+// console.log(autor.year);
+// Поэтому при переборе циклом for...in необходимо на каждой итерации добавить проверку на собственное свойство. Даже если сейчас мы уверены в том что у объекта нет несобственных свойств, это оградит от возможных ошибок в будущем.
+// const book = {
+//   title: 'The Last Kingdom',
+//   author: 'Bernard Cornwell',
+//   genres: ['historical prose', 'adventure'],
+//   rating: 8.38,
+// };
+
+// for (const key in book) {
+//   // Если это собственное свойство - выполняем тело if
+//   if (book.hasOwnProperty(key)) {
+//     console.log(key);
+//     console.log(book[key]);
+//   }
+
+//   // Если это не собственное свойство - ничего не делаем
+// }
+// console.log(book.hasOwnProperty('author'));
+// console.log(book.hasOwnProperty('name'));
+
+// ПЕРЕБОР FOR..OF с помощью Object.keys() and Object.values()
+
+// const book = {
+//   title: 'The Last Kingdom',
+//   author: 'Bernard Cornwell',
+//   genres: ['historical prose', 'adventure'],
+//   rating: 8.38,
+// };
+// const keys = Object.keys(book);
+// for (const key of keys) {
+//   // console.log(book);
+//   // console.log(key);
+//   console.log(book[key]);
+// }
+
+// const goods = {
+//   apples: 6,
+//   grapes: 3,
+//   bread: 4,
+//   cheese: 7,
+// };
+// const values = Object.values(goods);
+// let total = 0;
+// for (const value of values) {
+//   total += value;
+// }
+// console.log(values);
+// console.log(total);
+
+// Метод Object.entries()
+// Метод Object.entries(obj) возвращает массив записей, каждым элементом которого будет еще один массив из 2-х элементов: имени свойства и значения этого свойства из объекта obj.
+
+// const book = {
+//   title: 'The Last Kingdom',
+//   author: 'Bernard Cornwell',
+//   rating: 8.38,
+// };
+// const keys = Object.keys(book);
+// console.log(keys); // ['title', 'author', 'rating']
+
+// const values = Object.values(book);
+// console.log(values); // ['The Last Kingdom', 'Bernard Cornwell', 8.38]
+
+// const entries = Object.entries(book);
+// console.log(entries);
+// // [["title", "The Last Kingdom"], ["author", "Bernard Cornwell"], ["rating", 8.38]]
+
+// ДЕСТРУКТУРИЗАЦИЯ ОБЬЕКТОВ
+// const book = {
+//   title: 'The Last Kingdom',
+//   author: 'Bernard Cornwell',
+//   genres: ['historical prose', 'adventure'],
+//   isPublic: true,
+//   rating: 8.38,
+// };
+
+// // Деструктуризируем
+// const { title, author, isPublic, rating, coverImage } = book;
+// console.log(coverImage); // undefined
+
+// const accessType = isPublic ? 'публичном' : 'закрытом';
+// const message = `Книга ${title} автора ${author} с рейтингом ${rating} находится в ${accessType} доступе.`;
+// console.log(message);
+
+// const book = {
+//   title: 'The Last Kingdom',
+//   author: 'Bernard Cornwell',
+//   genres: ['historical prose', 'adventure'],
+//   isPublic: true,
+// };
+// const { title, author, genres, isPublic, rating = 9 } = book;
+// console.log(rating);
+
 // const apartment = {
 //   tags: ['premium', 'promoted', 'top'],
 //   price: 2153,
